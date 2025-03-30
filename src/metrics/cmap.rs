@@ -9,13 +9,13 @@ use std::{
 };
 
 #[derive(Debug, Clone, Default)]
-pub struct Metrics {
+pub struct CmapMetrics {
     data: Arc<DashMap<String, i64>>, // Arc<RwLock<HashMap<String, i64>>> => Arc<DashMap<String, i64>>
 }
 
-impl Metrics {
+impl CmapMetrics {
     pub fn new() -> Self {
-        Metrics {
+        CmapMetrics {
             data: Arc::new(DashMap::new()),
         }
     }
@@ -35,7 +35,7 @@ impl Metrics {
     }
 }
 
-impl fmt::Display for Metrics {
+impl fmt::Display for CmapMetrics {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         // let data = self.data.read().map_err(|_e| fmt::Error)?;
         for entry in self.data.iter() {
