@@ -21,12 +21,9 @@ fn main() -> Result<()> {
 
     loop {
         thread::sleep(Duration::from_secs(1));
-        let snapshot = metrics.snapshot();
-        println!("{:?}", snapshot);
+        // let snapshot = metrics.snapshot();
+        println!("{}", metrics);
     }
-
-    #[allow(unreachable_code)]
-    Ok(())
 }
 
 fn task_worker(idx: usize, metrics: Metrics) -> Result<()> {
